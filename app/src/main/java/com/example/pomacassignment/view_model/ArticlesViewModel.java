@@ -54,13 +54,14 @@ public class ArticlesViewModel extends ViewModel {
 
                     getArticlesResponse.postValue(articleList);
 
-                }
+                } else
+                    getArticlesResponse.postValue(null);
 
             }
 
             @Override
             public void onError(Throwable e) {
-
+                getArticlesResponse.postValue(null);
             }
 
             @Override
