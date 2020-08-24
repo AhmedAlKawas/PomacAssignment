@@ -1,8 +1,10 @@
-package com.example.pomacassignment;
+package com.example.pomacassignment.view;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pomacassignment.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
