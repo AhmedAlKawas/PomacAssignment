@@ -1,4 +1,4 @@
-package com.example.pomacassignment.model;
+package com.example.pomacassignment.network.model.responds;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
