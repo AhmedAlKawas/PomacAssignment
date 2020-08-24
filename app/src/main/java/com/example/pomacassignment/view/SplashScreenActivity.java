@@ -32,7 +32,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         initView();
         initListeners();
 
-        articlesViewModel.getArticlesList();
+        articlesViewModel.getArticlesList(SplashScreenActivity.this);
 
     }
 
@@ -40,11 +40,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         animationView = findViewById(R.id.lottie);
         errorTv = findViewById(R.id.tv_error_occur);
         refreshIv = findViewById(R.id.iv_refresh);
-        refreshIv.setOnClickListener(view -> {refreshClicked();});
+        refreshIv.setOnClickListener(view -> refreshClicked());
     }
 
     private void refreshClicked() {
-        articlesViewModel.getArticlesList();
+        articlesViewModel.getArticlesList(SplashScreenActivity.this);
         animationView.setVisibility(View.VISIBLE);
         errorTv.setVisibility(View.GONE);
         refreshIv.setVisibility(View.GONE);
