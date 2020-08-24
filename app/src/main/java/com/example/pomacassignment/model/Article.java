@@ -16,6 +16,7 @@ public class Article implements Serializable {
     private String publishedBy;
     private String publishedDate;
     private String imageUrl;
+    private String abstractStr;
 
     @BindingAdapter("loadImage")
     public static void loadImageByGlide(ImageView imageView, String imgUrl) {
@@ -58,5 +59,13 @@ public class Article implements Serializable {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getAbstractStr() {
+        return abstractStr;
+    }
+
+    public void setAbstractStr(String abstractStr) {
+        this.abstractStr = abstractStr;
     }
 }

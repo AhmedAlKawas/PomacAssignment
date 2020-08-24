@@ -48,6 +48,7 @@ public class ArticlesViewModel extends ViewModel {
                         article.setPublishedBy(result.getByline());
                         article.setPublishedDate(result.getPublishedDate());
                         article.setImageUrl(result.getThumbnailStandard());
+                        article.setAbstractStr(result.getAbstract());
                         articleList.add(article);
 
                     }
