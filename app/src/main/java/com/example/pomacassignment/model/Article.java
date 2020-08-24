@@ -21,7 +21,8 @@ public class Article implements Serializable {
     public static void loadImageByGlide(ImageView imageView, String imgUrl) {
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.picture_placeholder)
-                .error(R.drawable.picture_placeholder);
+                .error(R.drawable.picture_placeholder)
+                .fitCenter();
 
         Glide.with(imageView.getContext()).setDefaultRequestOptions(requestOptions)
                 .load(imgUrl).into(imageView);
