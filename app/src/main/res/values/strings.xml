@@ -2,4 +2,6 @@
     <string name="app_name">PomacAssignment</string>
     <string name="new_york_times">New York Times</string>
     <string name="articles">articles</string>
+    <string name="shadow">shadow</string>
+    <string name="article_thumbnail">article thumbnail</string>
 </resources>
