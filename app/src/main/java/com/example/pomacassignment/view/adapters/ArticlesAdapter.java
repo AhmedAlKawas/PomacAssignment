@@ -1,5 +1,7 @@
 package com.example.pomacassignment.view.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pomacassignment.R;
 import com.example.pomacassignment.databinding.ItemArticleBinding;
 import com.example.pomacassignment.model.Article;
+import com.example.pomacassignment.view.ArticleDetailsActivity;
 
 import java.util.List;
 
@@ -17,7 +20,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
 
     private List<Article> articleList;
     private LayoutInflater layoutInflater;
-    private ItemArticleBinding articleBinding;
+    private Context context;
 
     public ArticlesAdapter(List<Article> articleList) {
         this.articleList = articleList;
@@ -28,6 +31,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
     public ArticleHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (layoutInflater == null)
             layoutInflater = LayoutInflater.from(parent.getContext());
+        context = parent.getContext();
         ItemArticleBinding articleBinding = DataBindingUtil.inflate(layoutInflater,
                 R.layout.item_article, parent, false);
         return new ArticleHolder(articleBinding);
@@ -35,8 +39,16 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
 
     @Override
     public void onBindViewHolder(@NonNull ArticleHolder holder, int position) {
-        Article articleItem = articleList.get(position);
-        holder.articleBinding.setArticle(articleItem);
+        holder.articleBinding.setArticle(articleList.get(position));
+        holder.articleBinding.cvArticleItem.setOnClickListener(view -> {
+            goToArticleDetails(articleList.get(position));
+        });
+    }
+
+    private void goToArticleDetails(Article article) {
+        Intent intent = new Intent(context, ArticleDetailsActivity.class);
+        intent.putExtra(context.getString(R.string.articles), article);
+        context.startActivity(intent);
     }
 
     @Override
