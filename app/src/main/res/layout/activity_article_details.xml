@@ -1,9 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.ArticleDetailsActivity">
+<layout>
+    <data>
+        <variable
+            name="article"
+            type="com.example.pomacassignment.model.Article" />
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.ArticleDetailsActivity">
+
+        <View
+            android:id="@+id/view_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/app_bar_background"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/view_app_bar"
+            app:layout_constraintBottom_toBottomOf="@id/view_app_bar"
+            app:layout_constraintStart_toStartOf="@id/view_app_bar"
+            app:layout_constraintEnd_toEndOf="@id/view_app_bar"
+            android:textColor="@color/white"
+            android:text="@string/new_york_times"
+            android:textSize="@dimen/_16ssp"/>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/view_app_bar"
+            app:layout_constraintTop_toTopOf="@id/view_app_bar"
+            app:layout_constraintBottom_toBottomOf="@id/view_app_bar"
+            android:src="@drawable/ic_arrow_back_white_24dp"
+            android:contentDescription="@string/back"
+            android:padding="@dimen/_8sdp"/>
+
+        <View
+            android:id="@+id/view_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@id/view_app_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+
+        <ImageView
+            android:id="@+id/iv_article_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/view_app_bar"
+            app:layout_constraintBottom_toTopOf="@id/view_guideline"
+            android:layout_margin="@dimen/_8sdp"
+            android:contentDescription="@string/article_thumbnail"
+            loadImage="@{article.imageUrl}"/>
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_article_thumbnail"
+            app:layout_constraintStart_toStartOf="@id/iv_article_thumbnail"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:padding="@dimen/_4sdp"
+            android:text="@{article.title}"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_article_published_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_article_title"
+            app:layout_constraintStart_toStartOf="@id/tv_article_title"
+            android:text="@{article.publishedBy}"
+            android:textSize="@dimen/_13ssp"/>
+
+        <TextView
+            android:id="@+id/tv_article_published_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_article_published_by"
+            app:layout_constraintEnd_toEndOf="@id/iv_article_thumbnail"
+            android:padding="@dimen/_4sdp"
+            android:text="@{article.publishedDate}"
+            android:textSize="@dimen/_12ssp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

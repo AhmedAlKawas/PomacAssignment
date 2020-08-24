@@ -4,4 +4,5 @@
     <string name="articles">articles</string>
     <string name="shadow">shadow</string>
     <string name="article_thumbnail">article thumbnail</string>
+    <string name="back">back</string>
 </resources>
