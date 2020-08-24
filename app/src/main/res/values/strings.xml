@@ -5,4 +5,6 @@
     <string name="shadow">shadow</string>
     <string name="article_thumbnail">article thumbnail</string>
     <string name="back">back</string>
+    <string name="an_error_occurred_please_try_again">An error occurred please try again!</string>
+    <string name="refresh">refresh</string>
 </resources>

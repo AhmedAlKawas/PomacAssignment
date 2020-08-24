@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/new_york_times"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/_24ssp"
+        android:textSize="@dimen/_28ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,6 +23,7 @@
         app:layout_constraintVertical_bias="0.33"/>
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,5 +34,30 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/newspaper_animation"
         app:layout_constraintVertical_bias="0.33"/>
+
+    <TextView
+        android:id="@+id/tv_error_occur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_header"
+        android:text="@string/an_error_occurred_please_try_again"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintVertical_bias="0.33"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/iv_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_refresh_black_24dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_error_occur"
+        app:layout_constraintStart_toStartOf="@id/tv_error_occur"
+        app:layout_constraintEnd_toEndOf="@id/tv_error_occur"
+        android:padding="@dimen/_8sdp"
+        android:contentDescription="@string/refresh"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
